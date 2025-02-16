@@ -1,4 +1,12 @@
-document.getElementById("contact").addEventListener("submit", function(event) {
-    event.preventDefault();
-    document.getElementById("form-status").innerText = "Message sent! I'll get back to you soon.";
+document.addEventListener("DOMContentLoaded", function() {
+    let music = document.getElementById("music-player");
+    music.volume = 0.5; // Set initial volume to 50%
+    
+    // Try to play music (needed for autoplay policies in some browsers)
+    let playPromise = music.play();
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            console.log("Autoplay prevented. User interaction needed.");
+        });
+    }
 });
